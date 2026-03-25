@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
+
+<title>Azure Bay Resort</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins', sans-serif;
+}
+
+body{
+background:#f0f8ff;
+color:#333;
+}
+
+/* NAVBAR */
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 60px;
+position:absolute;
+width:100%;
+z-index:10;
+}
+
+.logo{
+font-family:'Playfair Display';
+font-size:28px;
+color:white;
+}
+
+.nav-links{
+display:flex;
+gap:25px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:white;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:#00c6ff;
+}
+
+.book-btn{
+background:#00c6ff;
+color:white;
+padding:10px 20px;
+border-radius:25px;
+text-decoration:none;
+}
+
+/* HERO */
+.hero{
+height:100vh;
+position:relative;
+overflow:hidden;
+}
+
+/* SLIDES */
+.slides{
+display:flex;
+height:100%;
+transition:transform 1s ease-in-out;
+}
+
+.slide{
+min-width:100%;
+background-size:cover;
+background-position:center;
+}
+
+/* BLUE OVERLAY */
+.overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0, 80, 120, 0.4);
+}
+
+/* TEXT */
+.hero-content{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%, -50%);
+text-align:center;
+color:white;
+z-index:5;
+}
+
+.hero h1{
+font-size:60px;
+font-family:'Playfair Display';
+}
+
+.hero p{
+max-width:600px;
+margin:15px auto;
+}
+
+.btn{
+padding:12px 25px;
+border:none;
+border-radius:25px;
+cursor:pointer;
+margin:10px;
+}
+
+.primary{
+background:#00c6ff;
+color:white;
+}
+
+.secondary{
+background:white;
+color:#333;
+}
+
+/* ARROWS */
+.arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+font-size:30px;
+background:rgba(255,255,255,0.5);
+padding:10px;
+cursor:pointer;
+z-index:10;
+}
+
+.left{ left:20px; }
+.right{ right:20px; }
+
+/* DOTS */
+.dots{
+position:absolute;
+bottom:20px;
+width:100%;
+text-align:center;
+}
+
+.dot{
+height:10px;
+width:10px;
+margin:5px;
+display:inline-block;
+border-radius:50%;
+background:white;
+cursor:pointer;
+opacity:0.5;
+}
+
+.active{
+opacity:1;
+background:#00c6ff;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+<div class="logo">La Luna Vista</div>
+
+<div class="nav-links">
+<a href="#">Rooms</a>
+<a href="#">Dining</a>
+<a href="#">Activities</a>
+<a href="#">Gallery</a>
+<a href="#">Login</a>
+</div>
+
+<a href="#" class="book-btn" onclick="bookNow()">Reserve</a>
+</div>
+
+<section class="hero">
+
+<div class="slides" id="slides">
+  <div class="slide" style="background-image:url('bg.png')"></div>
+  <div class="slide" style="background-image:url('bg2.png')"></div>
+  <div class="slide" style="background-image:url('bg3.png')"></div>
+</div>
+
+<div class="overlay"></div>
+
+<div class="hero-content">
+<h1>Escape to Paradise</h1>
+
+<p>
+Relax in the serenity of Azure Bay Resort, where ocean views
+and luxury living meet.
+</p>
+
+<button class="btn primary" onclick="bookNow()">Book Now</button>
+<button class="btn secondary" onclick="viewGallery()">View Gallery</button>
+</div>
+
+<div class="arrow left" onclick="prevSlide()">❮</div>
+<div class="arrow right" onclick="nextSlide()">❯</div>
+
+<div class="dots">
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+</div>
+
+</section>
+
+<script>
+
+let index = 0;
+const slides = document.getElementById("slides");
+const dots = document.getElementsByClassName("dot");
+const total = dots.length;
+
+function update(){
+slides.style.transform = "translateX(-" + (index * 100) + "%)";
+
+for(let i=0;i<total;i++){
+dots[i].classList.remove("active");
+}
+dots[index].classList.add("active");
+}
+
+function nextSlide(){
+index = (index + 1) % total;
+update();
+}
+
+function prevSlide(){
+index = (index - 1 + total) % total;
+update();
+}
+
+for(let i=0;i<total;i++){
+dots[i].onclick = function(){
+index = i;
+update();
+}
+}
+
+setInterval(nextSlide, 4000);
+update();
+
+/* BUTTONS */
+function bookNow(){ alert("Reservation system coming soon!"); }
+function viewGallery(){ alert("Opening gallery..."); }
+
+</script>
+
+</body>
+</html>
