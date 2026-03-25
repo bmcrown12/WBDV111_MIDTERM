@@ -1,0 +1,107 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background:#121212;
+    color:white;
+}
+
+/* NAVBAR */
+.navbar {
+    display:flex;
+    justify-content:space-between;
+    padding:20px 40px;
+    background:#1e1e1e;
+}
+
+.navbar h1 {
+    font-family:'Playfair Display', serif;
+}
+
+.navbar a {
+    color:white;
+    margin-left:15px;
+    text-decoration:none;
+}
+
+/* HERO */
+.hero {
+    height:90vh;
+    background:url('bg.png') center/cover no-repeat;
+    position:relative;
+}
+
+.overlay {
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+}
+
+.hero-content {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    text-align:center;
+}
+
+.hero-content h2 {
+    font-size:50px;
+    font-family:'Playfair Display';
+}
+
+.btn {
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 25px;
+    background:#ff4d6d;
+    color:white;
+    border-radius:30px;
+    text-decoration:none;
+}
+
+/* MENU GRID */
+.menu-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+    gap:30px;
+    padding:40px;
+}
+
+/* CARD STYLE */
+.card {
+    background:#1e1e1e;
+    border-radius:15px;
+    overflow:hidden;
+    text-align:center;
+    transition:0.3s;
+}
+
+.card:hover {
+    transform:scale(1.05);
+}
+
+.card img {
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.card h3 {
+    margin:15px 0;
+}
+
+.card button {
+    margin-bottom:15px;
+    padding:10px 20px;
+    border:none;
+    background:#ff4d6d;
+    color:white;
+    border-radius:20px;
+    cursor:pointer;
+}
