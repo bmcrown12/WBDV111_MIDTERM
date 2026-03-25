@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>VMTunes Music Player</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #fff;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #000;
+    padding: 20px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav a {
+    color: #b3b3b3;
+    text-decoration: none;
+    margin: 10px 0;
+    font-size: 16px;
+  }
+
+  .nav a:hover {
+    color: #fff;
+  }
+
+  /* Main Content */
+  .main {
+    margin-left: 250px;
+    padding: 20px;
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  .search-input {
+    flex: 1;
+    padding: 10px 15px;
+    background-color: #333;
+    border: none;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 14px;
+  }
+
+  /* Playlist or Song List */
+  .songs {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .song {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #282828;
+  }
+
+  .song img {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    border-radius: 4px;
+  }
+
+  .song-info {
+    flex: 1;
+  }
+
+  .song-title {
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .song-artist {
+    font-size: 14px;
+    color: #b3b3b3;
+    margin: 0;
+  }
+
+  /* Player Controls */
+  .player {
+    position: fixed;
+    bottom: 0;
+    left: 250px;
+    right: 0;
+    background-color: #181818;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    height: 80px;
+  }
+
+  .controls {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+  }
+
+  .control-btn {
+    background: none;
+    border: none;
+    margin: 0 10px;
+    cursor: pointer;
+    color: #b3b3b3;
+    font-size: 20px;
+  }
+
+  .control-btn:hover {
+    color: #fff;
+  }
+
+  /* Progress Bar */
+  .progress-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .progress {
+    width: 100%;
+    height: 4px;
+    background-color: #404040;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+
+  .progress-filled {
+    height: 4px;
+    background-color: #1db954;
+    width: 50%; /* Example progress */
+    border-radius: 2px;
+  }
+
+  /* Album Art and Song Info in Player */
+  .player-info {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+  }
+
+  .player-art {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+  }
+
+  .player-song {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .song-title-player {
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .song-artist-player {
+    font-size: 12px;
+    color: #b3b3b3;
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+  <div class="logo">My Tunes</div>
+  <div class="nav">
+    <a href="#">Home</a>
+    <a href="#">Search</a>
+    <a href="#">Your Library</a>
+  </div>
+</div>
+<div class="main">
+  <div class="header">
+    <input type="text" class="search-input" placeholder="Search for Artists, Songs, or Podcasts" />
+  </div>
+  <div class="songs">
+    <div class="song">
+       <img src="Niki.jpg" alt="Album Art"/>
+      <div class="song-info">
+        <p class="song-title">Backburner</p>
+        <p class="song-artist">Niki</p>
+      </div>
+    </div>
+    <div class="song">
+      <img src="Sabrina.jpg" alt="Album Art"/>
+      <div class="song-info">
+        <p class="song-title">santa doesn't know you like i do</p>
+        <p class="song-artist">Sabrina Carpenter</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="player">
+  <div class="controls">
+    <button class="control-btn" title="Shuffle">🔀</button>
+    <button class="control-btn" title="Previous">⏮️</button>
+    <button class="control-btn" title="Play/Pause">▶️</button>
+    <button class="control-btn" title="Next">⏭️</button>
+    <button class="control-btn" title="Repeat">🔁</button>
+  </div>
+  <div class="progress-container">
+    <div class="progress">
+      <div class="progress-filled"></div>
+    </div>
+  </div>
+  <div class="player-info">
+    <img src="Sabrina.jpg" alt="Album Art" class="player-art" />
+    <div class="player-song">
+      <p class="song-title-player">santa doesn't know you like i do</p>
+      <p class="song-artist-player">Sabrina Carpenter</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
